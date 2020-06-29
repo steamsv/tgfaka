@@ -604,7 +604,7 @@ def card_func_step2(update, context):
         func = context.user_data['func']
         if func == '添加卡密':
             query.edit_message_text(
-                text='请发送文件名为: *分类名|商品名.txt* 的TXT文件\n'
+                text='请发送文件名为: *分类名｜商品名.txt* 的TXT文件(中文分隔符)\n'
                      '文件内容为卡密，一行一个\n',
                 parse_mode='Markdown', )
             return ADMIN_CARD_STEP2
@@ -621,7 +621,7 @@ def card_func_step2(update, context):
                 query.edit_message_text(text=" {} 下 {} 不存在卡密".format(category_name, goods_name))
                 return ConversationHandler.END
             else:
-                new_file = open('./card/导出卡密|{}|{}.txt'.format(category_name, goods_name), 'w')
+                new_file = open('./card/导出卡密｜{}｜{}.txt'.format(category_name, goods_name), 'w')
                 for card in cards_list:
                     context = card[3]
                     new_file.write(context + '\n')
@@ -631,8 +631,8 @@ def card_func_step2(update, context):
                 conn.close()
                 chat_id = query.message.chat.id
                 bot.send_document(chat_id=chat_id, document=open(
-                    './card/导出卡密|{}|{}.txt'.format(category_name, goods_name), 'rb'))
-                os.remove('./card/导出卡密|{}|{}.txt'.format(category_name, goods_name))
+                    './card/导出卡密｜{}｜{}.txt'.format(category_name, goods_name), 'rb'))
+                os.remove('./card/导出卡密｜{}｜{}.txt'.format(category_name, goods_name))
                 query.edit_message_text(text="分类 {} 下 {} 卡密已全部删除".format(category_name, goods_name))
                 return ConversationHandler.END
     except Exception as e:
@@ -648,8 +648,8 @@ def card_add_exec(update, context):
         file_name = update.message.document.file_name
         new_file.download(custom_path='./card/{}'.format(file_name))
         split_file_name = file_name.split('.')[0]
-        user_file_category_name = split_file_name.split('|')[0]
-        user_file_goods_name = split_file_name.split('|')[1]
+        user_file_category_name = split_file_name.split('｜')[0]
+        user_file_goods_name = split_file_name.split('｜')[1]
         print(category_name + "｜" + goods_name)
         if user_file_category_name != category_name or user_file_goods_name != goods_name:
             update.message.reply_text('文件名有误，请检查后重新发送！重启会话 /{}'.format(ADMIN_COMMAND_START))
