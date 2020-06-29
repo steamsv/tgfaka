@@ -17,6 +17,7 @@
 ![](https://s3.jpg.cm/2020/06/29/cwg25.jpg)
 ![](https://s3.jpg.cm/2020/06/29/cwfNr.jpg)
 ### 整体功能演示
+[GIF演示](https://github.com/lulafun/tg_faka_bot/raw/master/fakabot2.gif)
 ![](http://kangle.bakbak.cn/fakabot2.gif)
 ### 数据库
 使用sqlite3作为数据库，轻量、便于备份。
