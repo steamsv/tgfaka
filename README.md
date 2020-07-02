@@ -1,5 +1,6 @@
 ## 介绍
 这是一个Telegram 发卡机器人，此机器人基于Python开发，在Python 3.6.7测试通过。
+Telegram 交流反馈群组：@tgfaka  [点击加入](https://t.me/tgfaka)
 
 ## 使用方法
 ### 安装依赖
