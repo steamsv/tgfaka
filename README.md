@@ -6,7 +6,7 @@ Telegram 交流反馈群组：@tgfaka  [点击加入](https://t.me/tgfaka)
 ### 安装依赖
 `pip3 install -r requirements.txt` 
 ### 编辑配置
-编辑`config.py`文件，根据注释配置参数
+编辑`config.py.example`文件，重命名为`config.py`，根据注释配置参数
 ### 启动方法
 `python3 main.py`
 
