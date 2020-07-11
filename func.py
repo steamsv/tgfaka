@@ -1,5 +1,5 @@
 from telegram.ext import Updater
-from config_bak import TOKEN
+from config import TOKEN
 from admin import admin_handler
 from user import start_handler
 
