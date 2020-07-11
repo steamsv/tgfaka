@@ -1,12 +1,11 @@
 import telegram
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from telegram.ext import CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackQueryHandler
-from config_bak import TOKEN, PAY_TIMEOUT
+from config import TOKEN, PAY_TIMEOUT, PAYMENT_METHOD
 import sqlite3
 import time
 import datetime
 import random
-from config_bak import PAYMENT_METHOD
 import importlib
 
 

@@ -1,7 +1,7 @@
 import telegram
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from telegram.ext import CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackQueryHandler
-from config_bak import TOKEN, ADMIN_ID, ADMIN_COMMAND_START, ADMIN_COMMAND_QUIT
+from config import TOKEN, ADMIN_ID, ADMIN_COMMAND_START, ADMIN_COMMAND_QUIT
 import sqlite3
 import time
 import os
