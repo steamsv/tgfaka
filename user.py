@@ -112,6 +112,7 @@ def user_price_filter(update, context):
     elif len(active_cards) > 0:
         price = goods[3]
         descrip = goods[5]
+        context.user_data['descrip'] = descrip
         context.user_data['goods_id'] = goods_id
         context.user_data['goods_name'] = goods_name
         context.user_data['price'] = price
@@ -132,6 +133,9 @@ def choose_payment_method(update, context):
     try:
         query = update.callback_query
         query.answer()
+        descrip = context.user_data['descrip']
+        goods_name = context.user_data['goods_name']
+        price = context.user_data['price']
         user_payment_method = update.callback_query.data
         print('用户选择的支付方式为：' + user_payment_method)
         context.user_data['payment_method'] = user_payment_method
@@ -141,8 +145,11 @@ def choose_payment_method(update, context):
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         query.edit_message_text(
-            text='选择您的操作：',
-            reply_markup=reply_markup
+            text='商品名：*{}*\n'
+                 '价格：*{}*\n'
+                 '介绍：*{}*'.format(goods_name, price, descrip),
+            reply_markup=reply_markup,
+            parse_mode='Markdown'
         )
         return SUBMIT
     except Exception as e:
